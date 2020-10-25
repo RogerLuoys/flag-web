@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@EnableFeignClients(basePackages = { "com.guahao.cloudhis.web", "com.guahao.cloudhis.client" })
 @ComponentScan("com.luoys.upgrade")
 public class ApplicationStarter {
 
