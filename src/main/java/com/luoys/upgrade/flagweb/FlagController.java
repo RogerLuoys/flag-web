@@ -1,24 +1,27 @@
 package com.luoys.upgrade.flagweb;
 
+import com.luoys.upgrade.client.FlagClient;
+import com.luoys.upgrade.util.Result;
+import com.luoys.upgrade.vo.FlagVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/member/work/order")
+@RequestMapping("/api/flag")
 @Slf4j
-@Api(tags = "工单")
 public class FlagController {
 
-    @ApiOperation("查询工单")
+
+    FlagClient flagClient;
+
     @RequestMapping(value = "/page", method = RequestMethod.GET)
-    public Result<PageInfo<WorkOrderVO>> page(WorkOrderQueryVO queryVO) {
-        queryVO.setOrgStdId(queryVO.getOrgOrgStdCode());
-        queryVO.setHospStdId(queryVO.getHospOrgStdCode());
-        queryVO.setUserOperated(queryVO.getUserCenterUserId());
-        queryVO.setAllStatus(Boolean.FALSE);
-        return workOrderClient.page(queryVO);
+    public Result<List<FlagVO>> page(String userId) {
+        return flagClient.page(userId);
     }
 
 }
