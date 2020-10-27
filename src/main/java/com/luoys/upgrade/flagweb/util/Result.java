@@ -1,4 +1,4 @@
-package com.luoys.upgrade.util;
+package com.luoys.upgrade.flagweb.util;
 import lombok.Data;
 
 @Data

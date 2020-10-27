@@ -1,4 +1,4 @@
-package com.luoys.upgrade.flagweb;
+package com.luoys.upgrade.flagweb.starter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,8 +1,7 @@
-package com.luoys.upgrade.flagweb;
-
-import com.luoys.upgrade.client.FlagClient;
-import com.luoys.upgrade.util.Result;
-import com.luoys.upgrade.vo.FlagVO;
+package com.luoys.upgrade.flagweb.web;
+import com.luoys.upgrade.flagweb.client.FlagClient;
+import com.luoys.upgrade.flagweb.util.Result;
+import com.luoys.upgrade.flagweb.vo.FlagVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +15,8 @@ import java.util.List;
 @Slf4j
 public class FlagController {
 
-
-    FlagClient flagClient;
+    @Autowired
+    private FlagClient flagClient;
 
     @RequestMapping(value = "/page", method = RequestMethod.GET)
     public Result<List<FlagVO>> page(String userId) {
