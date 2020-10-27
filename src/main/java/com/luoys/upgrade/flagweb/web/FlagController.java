@@ -23,4 +23,10 @@ public class FlagController {
         return flagClient.page(userId);
     }
 
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public Result<String> hello() {
+//        return Result.success("test");
+        return flagClient.hello();
+    }
+
 }
