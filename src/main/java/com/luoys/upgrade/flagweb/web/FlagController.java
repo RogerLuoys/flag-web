@@ -35,4 +35,10 @@ public class FlagController {
         return flagClient.addFlag(flagVO);
     }
 
+//    @ApiOperation(value = "获取指定会员卡详情")
+//    @RequestMapping(value = "/package/{id}", method = RequestMethod.GET)
+//    public Result<PackageAddVO> getById(@PathVariable("id") Integer packageId, LoginInfo loginInfo) {
+//
+//        Result<PackageAddVO> response = packageClient.getById(packageId);
+//    }
 }

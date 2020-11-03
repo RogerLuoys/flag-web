@@ -22,4 +22,8 @@ public interface FlagClient {
 
     @RequestMapping(value = "/flag/addFlag", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<String> addFlag(@RequestBody FlagVO flagVO);
+
+//    // 解决url映射问题
+//    @RequestMapping(value = "/package/detail/{id}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+//    Result<PackageAddVO> getById(@PathVariable("id") Integer packageId);
 }
