@@ -13,7 +13,6 @@ public class FlagVO {
     private String flagName;
     private String flagNameTwo;
     private String description;
-    @DateTimeFormat(pattern = "YYYY-MM-DD")
     private Date startDate;
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date endDate;

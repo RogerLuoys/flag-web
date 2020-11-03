@@ -14,9 +14,12 @@ import java.util.List;
 @FeignClient(value = "flag", url = "http://localhost:9002")
 public interface FlagClient {
 
-    @RequestMapping(value = "/flag/queryFlags", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<List<FlagQueryVO>> page(@RequestParam String userId);
-
     @RequestMapping(value = "/flag/hello", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<String> hello();
+
+    @RequestMapping(value = "/flag/queryFlags", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<List<FlagQueryVO>> queryFlags(@RequestParam String userId);
+
+    @RequestMapping(value = "/flag/addFlag", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<String> addFlag(@RequestBody FlagVO flagVO);
 }
