@@ -4,18 +4,20 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
-public class FlagVO {
-
+public class UserFlagVO {
     private String flagId;
-    @NotNull(message = "flag名称不能为空")
     private String flagName;
-    private String flagNameTwo;
     private String description;
+    private String witnessID;
+    private String witnessName;
+    private String type;
+    private String priority;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
+    private String status;
 }
