@@ -3,8 +3,7 @@ package com.luoys.upgrade.flagweb.web;
 import com.luoys.upgrade.flagweb.client.FlagBindClient;
 import com.luoys.upgrade.flagweb.client.FlagClient;
 import com.luoys.upgrade.flagweb.util.Result;
-import com.luoys.upgrade.flagweb.vo.FlagQueryVO;
-import com.luoys.upgrade.flagweb.vo.FlagVO;
+import com.luoys.upgrade.flagweb.vo.FlagDetailVO;
 import com.luoys.upgrade.flagweb.vo.UserFlagVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +34,9 @@ public class FlagController {
 //    }
 
     @RequestMapping(value = "/addFlag", method = RequestMethod.POST)
-    public Result<String> page(@RequestBody FlagVO flagVO) {
-        System.out.println(flagVO);
-        return flagClient.addFlag(flagVO);
+    public Result<String> page(@RequestBody FlagDetailVO flagDetailVO) {
+        System.out.println(flagDetailVO);
+        return flagClient.addFlag(flagDetailVO);
     }
 
     @RequestMapping(value = "/queryFlags", method = RequestMethod.GET)
@@ -48,10 +47,9 @@ public class FlagController {
         return flagBindClient.queryUserFlag(userId, userType, flagType, flagStatus);
     }
 
-//    @ApiOperation(value = "获取指定会员卡详情")
-//    @RequestMapping(value = "/package/{id}", method = RequestMethod.GET)
-//    public Result<PackageAddVO> getById(@PathVariable("id") Integer packageId, LoginInfo loginInfo) {
-//
-//        Result<PackageAddVO> response = packageClient.getById(packageId);
-//    }
+   @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+    public Result<FlagDetailVO> getById(@PathVariable("id") String flagId) {
+        Result<FlagDetailVO> response = flagClient.getByFlagId(flagId);
+        return response;
+    }
 }
