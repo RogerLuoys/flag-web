@@ -22,6 +22,6 @@ public interface FlagClient {
     @RequestMapping(value = "/flag/addFlag", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<String> addFlag(@RequestBody FlagDetailVO flagDetailVO);
 
-    @RequestMapping(value = "/flag/detail/{id}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<FlagDetailVO> getByFlagId(@PathVariable("id") String flagId);
+    @RequestMapping(value = "/flag/detail/", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<FlagDetailVO> getByFlagId(@RequestParam String flagId);
 }
