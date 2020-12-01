@@ -16,12 +16,12 @@ public interface FlagClient {
     @RequestMapping(value = "/flag/hello", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<String> hello();
 
-    @RequestMapping(value = "/flag/queryFlags", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<List<FlagQueryVO>> queryFlags(@RequestParam String userId);
+//    @RequestMapping(value = "/flag/queryFlagList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+//    Result<List<FlagQueryVO>> queryFlagList(@RequestParam String userId);
 
-    @RequestMapping(value = "/flag/addFlag", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/flag/new", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<String> addFlag(@RequestBody FlagDetailVO flagDetailVO);
 
     @RequestMapping(value = "/flag/detail/", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<FlagDetailVO> getByFlagId(@RequestParam String flagId);
+    Result<FlagDetailVO> getByFlagId(@RequestParam(value = "flagId") String flagId);
 }

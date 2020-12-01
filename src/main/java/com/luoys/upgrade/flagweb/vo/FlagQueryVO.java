@@ -8,7 +8,8 @@ public class FlagQueryVO {
     private String flagName;
     private String ownerId;
     private String witnessId;
-    private String type;
-    private String priority;
-    private String status;
+    private Integer type;
+    private Integer priority;
+    private Integer status;
+    private Integer pageIndex;
 }
