@@ -49,7 +49,8 @@ public class FlagController {
 //        return flagBindClient.queryFlagList(userId, userType, flagType, flagStatus);
 //    }
     @RequestMapping(value = "/queryFlagList", method = RequestMethod.POST)
-    public Result<List<UserFlagVO>> queryFlagList(@RequestBody FlagQueryVO flagQueryVO) {
+    public Result<List<UserFlagVO>> queryFlagList(@RequestHeader("UserId") String userId, @RequestBody FlagQueryVO flagQueryVO) {
+        flagQueryVO.setOwnerId(userId);
         return flagBindClient.queryFlagList(flagQueryVO);
     }
 
