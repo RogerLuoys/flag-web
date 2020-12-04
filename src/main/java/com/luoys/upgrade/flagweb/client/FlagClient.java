@@ -13,15 +13,12 @@ import java.util.List;
 @FeignClient(value = "flag", url = "http://localhost:9002")
 public interface FlagClient {
 
-    @RequestMapping(value = "/flag/hello", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<String> hello();
+    @RequestMapping(value = "/flag/newFlag", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<String> newFlag(@RequestBody FlagDetailVO flagDetailVO);
 
-//    @RequestMapping(value = "/flag/queryFlagList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-//    Result<List<FlagQueryVO>> queryFlagList(@RequestParam String userId);
+    @RequestMapping(value = "/flag/queryFlagDetail", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<FlagDetailVO> queryFlagDetail(@RequestParam(value = "flagId") String flagId);
 
-    @RequestMapping(value = "/flag/new", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<String> addFlag(@RequestBody FlagDetailVO flagDetailVO);
-
-    @RequestMapping(value = "/flag/detail/", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<FlagDetailVO> getByFlagId(@RequestParam(value = "flagId") String flagId);
+    @RequestMapping(value = "/flag/modifyFlagStatus", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<FlagDetailVO> modifyFlagStatus(@RequestParam("flagId") String flagId, @RequestParam("status") Integer status);
 }

@@ -27,27 +27,15 @@ public class FlagController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public Result<String> hello() {
 //        return Result.success("test");
-        return flagClient.hello();
+        return null;
     }
 
-//    @RequestMapping(value = "/queryFlags", method = RequestMethod.GET)
-//    public Result<List<FlagQueryVO>> queryFlags(@RequestParam String userId) {
-//        return flagClient.queryFlags(userId);
-//    }
-
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public Result<String> page(@RequestBody FlagDetailVO flagDetailVO) {
+    @RequestMapping(value = "/newFlag", method = RequestMethod.POST)
+    public Result<String> newFlag(@RequestBody FlagDetailVO flagDetailVO) {
         System.out.println(flagDetailVO);
-        return flagClient.addFlag(flagDetailVO);
+        return flagClient.newFlag(flagDetailVO);
     }
 
-//    @RequestMapping(value = "/queryFlagList", method = RequestMethod.GET)
-//    public Result<List<UserFlagVO>> queryFlagList(@RequestParam String userId,
-//                                                  @RequestParam(required = false) Integer userType,
-//                                                  @RequestParam(required = false) Integer flagType,
-//                                                  @RequestParam(required = false) Integer flagStatus) {
-//        return flagBindClient.queryFlagList(userId, userType, flagType, flagStatus);
-//    }
     @RequestMapping(value = "/queryFlagList", method = RequestMethod.POST)
     public Result<List<UserFlagVO>> queryFlagList(@RequestHeader("UserId") String userId, @RequestBody FlagQueryVO flagQueryVO) {
         flagQueryVO.setOwnerId(userId);
@@ -55,8 +43,14 @@ public class FlagController {
     }
 
    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-    public Result<FlagDetailVO> getById(@PathVariable("id") String flagId) {
-        Result<FlagDetailVO> response = flagClient.getByFlagId(flagId);
+    public Result<FlagDetailVO> queryFlagDetail(@PathVariable("id") String flagId) {
+        Result<FlagDetailVO> response = flagClient.queryFlagDetail(flagId);
+        return response;
+    }
+
+    @RequestMapping(value = "/modifyFlagStatus", method = RequestMethod.PUT)
+    public Result<FlagDetailVO> modifyFlagStatus(@RequestParam("flagId") String flagId, @RequestParam("status") Integer status) {
+        Result<FlagDetailVO> response = flagClient.modifyFlagStatus(flagId, status);
         return response;
     }
 }
