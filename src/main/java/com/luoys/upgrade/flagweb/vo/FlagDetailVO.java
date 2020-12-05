@@ -10,16 +10,26 @@ import java.util.List;
 @Data
 public class FlagDetailVO {
 
+    // flag 信息
     private String flagId;
-    @NotNull(message = "flag名称不能为空")
+    @NotNull(message = "flag名不能为空")
     private String flagName;
     private String description;
+    private String expected;
+    private String actual;
+    private Integer type;
+    private Integer status;
+    private Integer priority;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
-    private Integer priority;
-    private String expected;
-    private String actual;
+    // flag 关联的任务信息
     private List<TaskVO> tasks;
+
+    // flag 关联的账户信息
+    private String ownerId;
+    private String ownerName;
+    private String witnessId;
+    private String witnessName;
 }

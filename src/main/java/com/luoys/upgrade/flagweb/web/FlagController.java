@@ -31,8 +31,8 @@ public class FlagController {
     }
 
     @RequestMapping(value = "/newFlag", method = RequestMethod.POST)
-    public Result<String> newFlag(@RequestBody FlagDetailVO flagDetailVO) {
-        System.out.println(flagDetailVO);
+    public Result<String> newFlag(@RequestHeader("UserId") String userId, @RequestBody FlagDetailVO flagDetailVO) {
+        flagDetailVO.setOwnerId(userId);
         return flagClient.newFlag(flagDetailVO);
     }
 
@@ -42,7 +42,7 @@ public class FlagController {
         return flagBindClient.queryFlagList(flagQueryVO);
     }
 
-   @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+   @RequestMapping(value = "/queryFlagDetail/{id}", method = RequestMethod.GET)
     public Result<FlagDetailVO> queryFlagDetail(@PathVariable("id") String flagId) {
         Result<FlagDetailVO> response = flagClient.queryFlagDetail(flagId);
         return response;
