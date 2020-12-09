@@ -53,4 +53,10 @@ public class FlagController {
         Result<FlagDetailVO> response = flagClient.modifyFlagStatus(flagId, status);
         return response;
     }
+
+    @RequestMapping(value = "/removeFlag", method = RequestMethod.DELETE)
+    public Result<FlagDetailVO> removeFlag(@RequestParam("flagId") String flagId) {
+        Result<FlagDetailVO> response = flagClient.removeFlag(flagId);
+        return response;
+    }
 }

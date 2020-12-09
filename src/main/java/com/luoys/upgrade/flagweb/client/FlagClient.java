@@ -21,4 +21,11 @@ public interface FlagClient {
 
     @RequestMapping(value = "/flag/modifyFlagStatus", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<FlagDetailVO> modifyFlagStatus(@RequestParam("flagId") String flagId, @RequestParam("status") Integer status);
+
+    @RequestMapping(value = "/flag/removeFlag", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<FlagDetailVO> removeFlag(@RequestParam("flagId") String flagId);
+
+    @RequestMapping(value = "/flag/modifyFlagBasic", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<FlagDetailVO> modifyFlagBasic(@RequestBody FlagDetailVO flagDetailVO);
+
 }
