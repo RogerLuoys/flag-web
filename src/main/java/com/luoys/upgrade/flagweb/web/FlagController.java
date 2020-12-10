@@ -59,4 +59,11 @@ public class FlagController {
         Result<FlagDetailVO> response = flagClient.removeFlag(flagId);
         return response;
     }
+
+
+    @RequestMapping(value = "/modifyFlagBasic", method = RequestMethod.PUT)
+    public Result<FlagDetailVO> modifyFlagBasic(@RequestBody FlagDetailVO flagDetailVO) {
+        Result<FlagDetailVO> response = flagClient.modifyFlagBasic(flagDetailVO);
+        return response;
+    }
 }
