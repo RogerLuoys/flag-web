@@ -44,26 +44,22 @@ public class FlagController {
 
    @RequestMapping(value = "/queryFlagDetail/{id}", method = RequestMethod.GET)
     public Result<FlagDetailVO> queryFlagDetail(@PathVariable("id") String flagId) {
-        Result<FlagDetailVO> response = flagClient.queryFlagDetail(flagId);
-        return response;
+        return flagClient.queryFlagDetail(flagId);
     }
 
     @RequestMapping(value = "/modifyFlagStatus", method = RequestMethod.PUT)
-    public Result<FlagDetailVO> modifyFlagStatus(@RequestParam("flagId") String flagId, @RequestParam("status") Integer status) {
-        Result<FlagDetailVO> response = flagClient.modifyFlagStatus(flagId, status);
-        return response;
+    public Result<String> modifyFlagStatus(@RequestParam("flagId") String flagId, @RequestParam("status") Integer status) {
+        return flagClient.modifyFlagStatus(flagId, status);
     }
 
     @RequestMapping(value = "/removeFlag", method = RequestMethod.DELETE)
-    public Result<FlagDetailVO> removeFlag(@RequestParam("flagId") String flagId) {
-        Result<FlagDetailVO> response = flagClient.removeFlag(flagId);
-        return response;
+    public Result<String> removeFlag(@RequestParam("flagId") String flagId) {
+        return flagClient.removeFlag(flagId);
     }
 
 
     @RequestMapping(value = "/modifyFlagBasic", method = RequestMethod.PUT)
-    public Result<FlagDetailVO> modifyFlagBasic(@RequestBody FlagDetailVO flagDetailVO) {
-        Result<FlagDetailVO> response = flagClient.modifyFlagBasic(flagDetailVO);
-        return response;
+    public Result<String> modifyFlagBasic(@RequestBody FlagDetailVO flagDetailVO) {
+        return flagClient.modifyFlagBasic(flagDetailVO);
     }
 }
