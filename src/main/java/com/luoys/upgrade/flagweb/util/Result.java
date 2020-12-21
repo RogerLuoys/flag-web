@@ -1,7 +1,9 @@
 package com.luoys.upgrade.flagweb.util;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor  // 需要这个无参构造函数，否则Feign会报错
 public class Result<T> {
     private int code;
     private boolean success;

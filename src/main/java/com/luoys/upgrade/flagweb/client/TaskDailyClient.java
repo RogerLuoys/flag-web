@@ -1,6 +1,7 @@
 package com.luoys.upgrade.flagweb.client;
 
 import com.luoys.upgrade.flagweb.util.Result;
+import com.luoys.upgrade.flagweb.vo.TaskDailyDetailVO;
 import com.luoys.upgrade.flagweb.vo.TaskDailyVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -14,6 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface TaskDailyClient {
 
     @RequestMapping(value = "/taskDaily/newTaskDaily", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<String> newTaskDaily(@RequestBody TaskDailyVO taskDailyVO);
+    Result<String> newTaskDaily(@RequestBody TaskDailyDetailVO taskDailyDetailVO);
 
 }
