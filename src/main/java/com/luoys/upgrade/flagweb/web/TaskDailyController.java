@@ -25,13 +25,18 @@ public class TaskDailyController {
     @RequestMapping(value = "/newTaskDaily", method = RequestMethod.POST)
     public Result<String> newTaskDaily(@RequestHeader("UserId") String userId, @RequestBody TaskDailyDetailVO taskDailyDetailVO) {
         taskDailyDetailVO.setOwnerId(userId);
-        return Result.success(taskDailyClient.newTaskDaily(taskDailyDetailVO).getData());
+        return taskDailyClient.newTaskDaily(taskDailyDetailVO);
     }
 
     @RequestMapping(value = "/queryTaskDailyList", method = RequestMethod.POST)
     public Result<List<UserTaskDailyVO>> queryTaskDailyList(@RequestHeader("UserId") String userId, @RequestBody TaskDailyQueryVO taskDailyQueryVO) {
         taskDailyQueryVO.setOwnerId(userId);
         return flagBindClient.queryTaskDailyList(taskDailyQueryVO);
+    }
+
+    @RequestMapping(value = "/modifyTaskDailyStatus", method = RequestMethod.PUT)
+    public Result<String> modifyFlagStatus(@RequestParam("taskDailyId") String taskDailyId, @RequestParam("status") Integer status) {
+        return taskDailyClient.modifyTaskDailyStatus(taskDailyId, status);
     }
 
 }

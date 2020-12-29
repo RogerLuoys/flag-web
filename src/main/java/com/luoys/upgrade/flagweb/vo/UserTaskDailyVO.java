@@ -9,6 +9,8 @@ import java.util.Date;
 @Data
 public class UserTaskDailyVO {
 
+    private String taskDailyId;
+
     @NotNull(message = "每日任务名不能为空")
     private String taskDailyName;
 
@@ -17,7 +19,7 @@ public class UserTaskDailyVO {
     private Integer bindType;
 
     /**
-     * 1-已完成；2-未完成
+     * 1-进行中；2-已完成；3-撤销
      */
     private Integer status;
 
