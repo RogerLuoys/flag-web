@@ -19,5 +19,6 @@ public class UserFlagVO {
     private Date startDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
+    private String expected;
     private String status;
 }
