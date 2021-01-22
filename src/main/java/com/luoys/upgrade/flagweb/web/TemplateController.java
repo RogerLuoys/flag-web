@@ -1,0 +1,32 @@
+package com.luoys.upgrade.flagweb.web;
+
+import com.luoys.upgrade.flagweb.client.TemplateClient;
+import com.luoys.upgrade.flagweb.util.Result;
+import com.luoys.upgrade.flagweb.vo.*;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/template")
+@Slf4j
+@CrossOrigin
+public class TemplateController {
+
+    @Autowired
+    private TemplateClient templateClient;
+
+
+    @RequestMapping(value = "/queryFlagTemplateDetail", method = RequestMethod.GET)
+    public Result<FlagTemplateDetailVO> queryFlagTemplateDetail(@RequestParam("flagTemplateId") String flagTemplateId) {
+        return templateClient.queryFlagTemplateDetail(flagTemplateId);
+    }
+
+    @RequestMapping(value = "/queryFlagTemplateList", method = RequestMethod.GET)
+    public Result<List<FlagTemplateVO>> queryFlagTemplateList(@RequestHeader("UserId") String userId, @RequestParam(value = "flagName", required = false) String flagName) {
+        return templateClient.queryFlagTemplateList("1", flagName);
+    }
+
+}
