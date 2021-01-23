@@ -19,8 +19,8 @@ public class TemplateController {
     private TemplateClient templateClient;
 
 
-    @RequestMapping(value = "/queryFlagTemplateDetail", method = RequestMethod.GET)
-    public Result<FlagTemplateDetailVO> queryFlagTemplateDetail(@RequestParam("flagTemplateId") String flagTemplateId) {
+    @RequestMapping(value = "/queryFlagTemplateDetail/{id}", method = RequestMethod.GET)
+    public Result<FlagTemplateDetailVO> queryFlagTemplateDetail(@PathVariable("id") String flagTemplateId) {
         return templateClient.queryFlagTemplateDetail(flagTemplateId);
     }
 
