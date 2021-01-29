@@ -13,12 +13,12 @@ public class UserFlagVO {
     private String description;
     private String witnessID;
     private String witnessName;
-    private String type;
-    private String priority;
+    private Integer type;
+    private Integer priority;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
     private String expected;
-    private String status;
+    private Integer status;
 }

@@ -39,6 +39,9 @@ public class FlagController {
     @RequestMapping(value = "/queryFlagList", method = RequestMethod.POST)
     public Result<List<UserFlagVO>> queryFlagList(@RequestHeader("UserId") String userId, @RequestBody FlagQueryVO flagQueryVO) {
         flagQueryVO.setOwnerId(userId);
+        if (flagQueryVO.getFlagName() != null && flagQueryVO.getFlagName().equals("")) {
+            flagQueryVO.setFlagName(null);
+        }
         return flagBindClient.queryFlagList(flagQueryVO);
     }
 
