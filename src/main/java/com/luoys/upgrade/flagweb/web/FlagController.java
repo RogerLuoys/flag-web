@@ -2,6 +2,7 @@ package com.luoys.upgrade.flagweb.web;
 
 import com.luoys.upgrade.flagweb.client.FlagBindClient;
 import com.luoys.upgrade.flagweb.client.FlagClient;
+import com.luoys.upgrade.flagweb.util.PageListJO;
 import com.luoys.upgrade.flagweb.util.Result;
 import com.luoys.upgrade.flagweb.vo.FlagDetailVO;
 import com.luoys.upgrade.flagweb.vo.FlagQueryVO;
@@ -37,7 +38,7 @@ public class FlagController {
     }
 
     @RequestMapping(value = "/queryFlagList", method = RequestMethod.POST)
-    public Result<List<UserFlagVO>> queryFlagList(@RequestHeader("UserId") String userId, @RequestBody FlagQueryVO flagQueryVO) {
+    public Result<PageListJO<UserFlagVO>> queryFlagList(@RequestHeader("UserId") String userId, @RequestBody FlagQueryVO flagQueryVO) {
         flagQueryVO.setOwnerId(userId);
         if (flagQueryVO.getFlagName() != null && flagQueryVO.getFlagName().equals("")) {
             flagQueryVO.setFlagName(null);

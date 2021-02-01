@@ -1,5 +1,6 @@
 package com.luoys.upgrade.flagweb.client;
 
+import com.luoys.upgrade.flagweb.util.PageListJO;
 import com.luoys.upgrade.flagweb.util.Result;
 import com.luoys.upgrade.flagweb.vo.*;
 import feign.Param;
@@ -18,7 +19,7 @@ import java.util.List;
 public interface FlagBindClient {
 
     @RequestMapping(value = "/queryFlagList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<List<UserFlagVO>> queryFlagList(@RequestBody FlagQueryVO flagQueryVO);
+    Result<PageListJO<UserFlagVO>> queryFlagList(@RequestBody FlagQueryVO flagQueryVO);
 
     @RequestMapping(value = "/queryReportList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<List<UserReportVO>> queryReportList(@RequestParam("ownerId") String ownerId);
