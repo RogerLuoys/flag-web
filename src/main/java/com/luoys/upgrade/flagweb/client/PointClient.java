@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Component
-@FeignClient(value = "flag", url = "http://localhost:9002", path = "/point")
+@FeignClient(value = "flag", url = "http://localhost:9002")
 public interface PointClient {
 
-    @RequestMapping(value = "/queryPointSummary", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/point/queryPointSummary", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<PointSummaryVO> queryPointSummary(@RequestParam("ownerId") String ownerId);
 
-    @RequestMapping(value = "/queryPointLogList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/point/queryPointLogList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<List<PointLogVO>> queryPointLogList(@RequestParam("pointId") String pointId, @RequestParam("type") Integer type);
 
-    @RequestMapping(value = "/newPointLog", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/point/newPointLog", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<String> newPointLog(@RequestBody PointLogVO pointLogVO);
 
 }

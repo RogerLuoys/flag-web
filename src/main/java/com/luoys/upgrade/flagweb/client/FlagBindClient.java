@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Component
-@FeignClient(value = "flag", url = "http://localhost:9002", path = "/flagBind")
+@FeignClient(value = "flag", url = "http://localhost:9002")
 public interface FlagBindClient {
 
-    @RequestMapping(value = "/queryFlagList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/flagBind/queryFlagList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<PageListJO<UserFlagVO>> queryFlagList(@RequestBody FlagQueryVO flagQueryVO);
 
-    @RequestMapping(value = "/queryReportList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/flagBind/queryReportList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<List<UserReportVO>> queryReportList(@RequestParam("ownerId") String ownerId);
 
-    @RequestMapping(value = "/queryTaskDailyList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/flagBind/queryTaskDailyList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<List<UserTaskDailyVO>> queryTaskDailyList(@RequestBody TaskDailyQueryVO taskDailyQueryVO);
 }
