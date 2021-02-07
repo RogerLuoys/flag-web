@@ -24,7 +24,7 @@ public class ReportController {
     private ReportClient reportClient;
 
     @RequestMapping(value = "/queryReportList", method = RequestMethod.GET)
-    public Result<List<UserReportVO>> queryReportList(@RequestHeader("UserId") String userId) {
+    public Result<List<UserReportVO>> queryReportList(@RequestHeader("userId") String userId) {
         return flagBindClient.queryReportList(userId);
     }
 

@@ -17,6 +17,9 @@ public interface UserClient {
     @RequestMapping(value = "/user/login", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<UserInfoVO> login(@RequestParam("loginName") String loginName, @RequestParam("password") String password);
 
+    @RequestMapping(value = "/user/queryByUserId", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<UserInfoVO> queryByUserId(@RequestParam("userId") String userId);
+
     @RequestMapping(value = "/user/register", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<Integer> register(@RequestBody UserInfoVO userInfoVO);
 

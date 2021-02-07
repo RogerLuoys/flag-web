@@ -25,7 +25,7 @@ public class TemplateController {
     }
 
     @RequestMapping(value = "/queryFlagTemplateList", method = RequestMethod.GET)
-    public Result<List<FlagTemplateVO>> queryFlagTemplateList(@RequestHeader("UserId") String userId, @RequestParam(value = "flagName", required = false) String flagName) {
+    public Result<List<FlagTemplateVO>> queryFlagTemplateList(@RequestHeader("userId") String userId, @RequestParam(value = "flagName", required = false) String flagName) {
         return templateClient.queryFlagTemplateList("1", flagName);
     }
 

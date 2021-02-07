@@ -23,7 +23,7 @@ public class TaskDailyController {
     private FlagBindClient flagBindClient;
 
     @RequestMapping(value = "/newTaskDaily", method = RequestMethod.POST)
-    public Result<String> newTaskDaily(@RequestHeader("UserId") String userId, @RequestBody TaskDailyDetailVO taskDailyDetailVO) {
+    public Result<String> newTaskDaily(@RequestHeader("userId") String userId, @RequestBody TaskDailyDetailVO taskDailyDetailVO) {
         taskDailyDetailVO.setOwnerId(userId);
         return taskDailyClient.newTaskDaily(taskDailyDetailVO);
     }

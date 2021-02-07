@@ -32,13 +32,13 @@ public class FlagController {
     }
 
     @RequestMapping(value = "/newFlag", method = RequestMethod.POST)
-    public Result<String> newFlag(@RequestHeader("UserId") String userId, @RequestBody FlagDetailVO flagDetailVO) {
+    public Result<String> newFlag(@RequestHeader("userId") String userId, @RequestBody FlagDetailVO flagDetailVO) {
         flagDetailVO.setOwnerId(userId);
         return flagClient.newFlag(flagDetailVO);
     }
 
     @RequestMapping(value = "/queryFlagList", method = RequestMethod.POST)
-    public Result<PageListJO<UserFlagVO>> queryFlagList(@RequestHeader("UserId") String userId, @RequestBody FlagQueryVO flagQueryVO) {
+    public Result<PageListJO<UserFlagVO>> queryFlagList(@RequestHeader("userId") String userId, @RequestBody FlagQueryVO flagQueryVO) {
         flagQueryVO.setOwnerId(userId);
         if (flagQueryVO.getFlagName() != null && flagQueryVO.getFlagName().equals("")) {
             flagQueryVO.setFlagName(null);

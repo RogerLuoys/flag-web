@@ -21,7 +21,7 @@ public class PointController {
     private PointClient pointClient;
 
     @RequestMapping(value = "/queryPointSummary", method = RequestMethod.GET)
-    Result<PointSummaryVO> queryPointSummary(@RequestHeader("UserId") String userId) {
+    Result<PointSummaryVO> queryPointSummary(@RequestHeader("userId") String userId) {
         if (userId == null) {
             return Result.error("用户ID不能为空");
         }

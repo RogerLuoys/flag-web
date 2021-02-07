@@ -21,6 +21,11 @@ public class UserController {
         return userClient.login(loginName, password);
     }
 
+    @RequestMapping(value = "/queryUserProfile", method = RequestMethod.GET)
+    Result<UserInfoVO> queryUserProfile(@RequestHeader("userId") String userId) {
+        return userClient.queryByUserId(userId);
+    }
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     Result<Integer> register(@RequestBody UserInfoVO userInfoVO) {
         return userClient.register(userInfoVO);
