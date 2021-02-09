@@ -25,7 +25,8 @@ public class FlagDetailVO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
     // flag 关联的任务信息
-    private List<TaskVO> tasks;
+    private List<TaskVO> taskList;
+    private Integer totalTask;
 
     // flag 关联的账户信息
     private String ownerId;

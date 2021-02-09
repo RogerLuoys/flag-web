@@ -6,11 +6,14 @@ import com.luoys.upgrade.flagweb.util.PageListJO;
 import com.luoys.upgrade.flagweb.util.Result;
 import com.luoys.upgrade.flagweb.vo.FlagDetailVO;
 import com.luoys.upgrade.flagweb.vo.FlagQueryVO;
+import com.luoys.upgrade.flagweb.vo.TaskVO;
 import com.luoys.upgrade.flagweb.vo.UserFlagVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -46,8 +49,23 @@ public class FlagController {
         return flagBindClient.queryFlagList(flagQueryVO);
     }
 
-   @RequestMapping(value = "/queryFlagDetail/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/queryFlagDetail/{id}", method = RequestMethod.GET)
     public Result<FlagDetailVO> queryFlagDetail(@PathVariable("id") String flagId) {
+//        FlagDetailVO flagDetailVO = flagClient.queryFlagDetail(flagId).getData();
+//        // 周期转换
+//        List<TaskVO> taskVOList = flagDetailVO.getTaskList();
+//        for (int i = 0; i < taskVOList.size(); i++) {
+//            String[] cycles = taskVOList.get(i).getCycle().split(",");
+//            taskVOList.get(i).setCycleList(new ArrayList<>(Arrays.asList(cycles)));
+//        }
+//        flagDetailVO.setTaskList(taskVOList);
+//       for (TaskVO taskVO : taskVOList) {
+//           String cycle = taskVO.getCycle();
+//           String[] cycles = cycle.split(",");
+//           List<String> cycleList = new ArrayList<>(Arrays.asList(cycles));
+//           taskVO.setCycleList(cycleList);
+//       }
+
         return flagClient.queryFlagDetail(flagId);
     }
 
