@@ -2,12 +2,10 @@ package com.luoys.upgrade.flagweb.web;
 
 import com.luoys.upgrade.flagweb.client.FlagBindClient;
 import com.luoys.upgrade.flagweb.client.FlagClient;
+import com.luoys.upgrade.flagweb.client.UserClient;
 import com.luoys.upgrade.flagweb.util.PageListJO;
 import com.luoys.upgrade.flagweb.util.Result;
-import com.luoys.upgrade.flagweb.vo.FlagDetailVO;
-import com.luoys.upgrade.flagweb.vo.FlagQueryVO;
-import com.luoys.upgrade.flagweb.vo.TaskVO;
-import com.luoys.upgrade.flagweb.vo.UserFlagVO;
+import com.luoys.upgrade.flagweb.vo.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +25,9 @@ public class FlagController {
 
     @Autowired
     private FlagBindClient flagBindClient;
+
+    @Autowired
+    private UserClient userClient;
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public Result<String> hello() {
@@ -51,21 +52,6 @@ public class FlagController {
 
     @RequestMapping(value = "/queryFlagDetail/{id}", method = RequestMethod.GET)
     public Result<FlagDetailVO> queryFlagDetail(@PathVariable("id") String flagId) {
-//        FlagDetailVO flagDetailVO = flagClient.queryFlagDetail(flagId).getData();
-//        // 周期转换
-//        List<TaskVO> taskVOList = flagDetailVO.getTaskList();
-//        for (int i = 0; i < taskVOList.size(); i++) {
-//            String[] cycles = taskVOList.get(i).getCycle().split(",");
-//            taskVOList.get(i).setCycleList(new ArrayList<>(Arrays.asList(cycles)));
-//        }
-//        flagDetailVO.setTaskList(taskVOList);
-//       for (TaskVO taskVO : taskVOList) {
-//           String cycle = taskVO.getCycle();
-//           String[] cycles = cycle.split(",");
-//           List<String> cycleList = new ArrayList<>(Arrays.asList(cycles));
-//           taskVO.setCycleList(cycleList);
-//       }
-
         return flagClient.queryFlagDetail(flagId);
     }
 
@@ -83,5 +69,10 @@ public class FlagController {
     @RequestMapping(value = "/modifyFlagBasic", method = RequestMethod.PUT)
     public Result<String> modifyFlagBasic(@RequestBody FlagDetailVO flagDetailVO) {
         return flagClient.modifyFlagBasic(flagDetailVO);
+    }
+
+    @RequestMapping(value = "/modifyFlagWitness", method = RequestMethod.PUT)
+    public Result<String> modifyFlagWitness(@RequestBody FlagBindVO flagBindVO) {
+        return flagBindClient.modifyWitness(flagBindVO);
     }
 }

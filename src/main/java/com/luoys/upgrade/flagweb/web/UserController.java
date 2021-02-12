@@ -35,4 +35,10 @@ public class UserController {
     Result<Integer> modifyUser(@RequestBody UserInfoVO userInfoVO){
         return userClient.modifyUser(userInfoVO);
     }
+
+
+    @RequestMapping(value = "/queryUserInfo", method = RequestMethod.GET)
+    Result<UserInfoVO> queryUserInfo(@RequestParam("userId") String userId) {
+        return userClient.queryByUserId(userId);
+    }
 }

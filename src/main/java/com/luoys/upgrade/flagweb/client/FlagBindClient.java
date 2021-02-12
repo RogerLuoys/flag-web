@@ -26,4 +26,7 @@ public interface FlagBindClient {
 
     @RequestMapping(value = "/flagBind/queryTaskDailyList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<List<UserTaskDailyVO>> queryTaskDailyList(@RequestBody TaskDailyQueryVO taskDailyQueryVO);
+
+    @RequestMapping(value = "/flagBind/modifyWitness", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<String> modifyWitness(@RequestBody FlagBindVO flagBindVO);
 }
