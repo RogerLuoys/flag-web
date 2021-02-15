@@ -39,4 +39,9 @@ public class TaskDailyController {
         return taskDailyClient.modifyTaskDailyStatus(taskDailyId, status);
     }
 
+    @RequestMapping(value = "/modifyTaskDailyComment", method = RequestMethod.PUT)
+    public Result<String> modifyTaskDailyComment(@RequestParam("taskDailyId") String taskDailyId, @RequestParam("comment") String comment) {
+        return taskDailyClient.modifyTaskDailyComment(taskDailyId, comment);
+    }
+
 }

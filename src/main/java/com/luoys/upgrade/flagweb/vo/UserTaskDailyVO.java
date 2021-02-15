@@ -16,6 +16,10 @@ public class UserTaskDailyVO {
 
     private String description;
 
+    private String comment;
+
+    private Integer point;
+
     private Integer bindType;
 
     /**

@@ -21,4 +21,7 @@ public interface TaskDailyClient {
     @RequestMapping(value = "/taskDaily/modifyTaskDailyStatus", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<String> modifyTaskDailyStatus(@RequestParam("taskDailyId") String taskDailyId, @RequestParam("status") Integer status);
 
+    @RequestMapping(value = "/taskDaily/modifyTaskDailyComment", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    Result<String> modifyTaskDailyComment(@RequestParam("taskDailyId") String taskDailyId, @RequestParam("comment") String comment);
+
 }
