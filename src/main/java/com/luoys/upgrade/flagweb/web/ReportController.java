@@ -24,14 +24,14 @@ public class ReportController {
     private ReportClient reportClient;
 
     @RequestMapping(value = "/queryReportList", method = RequestMethod.GET)
-    public Result<List<UserReportVO>> queryReportList(@RequestHeader("userId") String userId) {
-        return flagBindClient.queryReportList(userId);
+    public Result<List<UserReportVO>> queryReportList(
+            @RequestHeader("userId") String userId) {
+        return flagBindClient.queryReportList(userId, 3);
     }
 
     @RequestMapping(value = "/queryReportDetail", method = RequestMethod.GET)
     public Result<ReportVO> queryReportDetail(@RequestParam("flagId") String flagId) {
         return reportClient.queryReportDetail(flagId);
     }
-
 
 }

@@ -22,7 +22,7 @@ public interface FlagBindClient {
     Result<PageListJO<UserFlagVO>> queryFlagList(@RequestBody FlagQueryVO flagQueryVO);
 
     @RequestMapping(value = "/flagBind/queryReportList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<List<UserReportVO>> queryReportList(@RequestParam("ownerId") String ownerId);
+    Result<List<UserReportVO>> queryReportList(@RequestParam("ownerId") String ownerId, @RequestParam("status") Integer status);
 
     @RequestMapping(value = "/flagBind/queryTaskDailyList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<List<UserTaskDailyVO>> queryTaskDailyList(@RequestBody TaskDailyQueryVO taskDailyQueryVO);
