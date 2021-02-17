@@ -35,8 +35,9 @@ public class TaskDailyController {
     }
 
     @RequestMapping(value = "/modifyTaskDailyStatus", method = RequestMethod.PUT)
-    public Result<String> modifyFlagStatus(@RequestParam("taskDailyId") String taskDailyId, @RequestParam("status") Integer status) {
-        return taskDailyClient.modifyTaskDailyStatus(taskDailyId, status);
+    public Result<String> modifyFlagStatus(
+            @RequestParam("taskDailyId") String taskDailyId, @RequestParam("status") Integer status, @RequestParam("pointId") String pointId) {
+        return taskDailyClient.modifyTaskDailyStatus(taskDailyId, status, pointId);
     }
 
     @RequestMapping(value = "/modifyTaskDailyComment", method = RequestMethod.PUT)
