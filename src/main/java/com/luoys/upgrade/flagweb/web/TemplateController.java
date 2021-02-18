@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,6 +27,23 @@ public class TemplateController {
 
     @RequestMapping(value = "/queryFlagTemplateList", method = RequestMethod.GET)
     public Result<List<FlagTemplateVO>> queryFlagTemplateList(@RequestHeader("userId") String userId, @RequestParam(value = "flagName", required = false) String flagName) {
+        return templateClient.queryFlagTemplateList("1", flagName);
+    }
+
+    @RequestMapping(value = "/copyFlagTemplate", method = RequestMethod.POST)
+    public Result<List<FlagTemplateVO>> copyFlagTemplate(@RequestHeader("userId") String userId, @RequestBody FlagTemplateDetailVO flagTemplateDetailVO) {
+        FlagDetailVO flagDetailVO = new FlagDetailVO();
+        flagDetailVO.setOwnerId(userId);
+        flagDetailVO.setFlagName(flagTemplateDetailVO.getFlagName());
+        flagDetailVO.setExpected(flagTemplateDetailVO.getExpected());
+        flagDetailVO.setDescription(flagTemplateDetailVO.getDescription());
+        flagDetailVO.setType(flagTemplateDetailVO.getType());
+        List<TaskVO> taskVOList = new ArrayList<>();
+        for (TaskTemplateVO item : flagTemplateDetailVO.getTaskTemplateList()) {
+            TaskVO taskVO = new TaskVO();
+            // todo 需要完善，放manager层
+//            taskVO.setCycleList(item.getCycle());
+        }
         return templateClient.queryFlagTemplateList("1", flagName);
     }
 
