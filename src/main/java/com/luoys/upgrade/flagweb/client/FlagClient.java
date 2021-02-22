@@ -1,13 +1,10 @@
 package com.luoys.upgrade.flagweb.client;
-import com.luoys.upgrade.flagweb.util.Result;
+import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.vo.FlagDetailVO;
-import com.luoys.upgrade.flagweb.vo.FlagQueryVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Component
 @FeignClient(value = "flag", url = "http://localhost:9002")

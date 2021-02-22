@@ -1,8 +1,8 @@
 package com.luoys.upgrade.flagweb.web;
 
+import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.client.FlagBindClient;
 import com.luoys.upgrade.flagweb.client.TaskDailyClient;
-import com.luoys.upgrade.flagweb.util.Result;
 import com.luoys.upgrade.flagweb.vo.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

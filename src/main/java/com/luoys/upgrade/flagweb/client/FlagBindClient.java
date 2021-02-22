@@ -1,9 +1,9 @@
 package com.luoys.upgrade.flagweb.client;
 
-import com.luoys.upgrade.flagweb.util.PageListJO;
-import com.luoys.upgrade.flagweb.util.Result;
+import com.luoys.common.api.PageInfo;
+import com.luoys.common.api.PageListJO;
+import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.vo.*;
-import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ import java.util.List;
 public interface FlagBindClient {
 
     @RequestMapping(value = "/flagBind/queryFlagList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<PageListJO<UserFlagVO>> queryFlagList(@RequestBody FlagQueryVO flagQueryVO);
+    Result<PageInfo<UserFlagVO>> queryFlagList(@RequestBody FlagQueryVO flagQueryVO);
 
     @RequestMapping(value = "/flagBind/queryReportList", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<List<UserReportVO>> queryReportList(@RequestParam("ownerId") String ownerId, @RequestParam("status") Integer status);

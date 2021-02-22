@@ -1,9 +1,9 @@
 package com.luoys.upgrade.flagweb.web;
 
 
+import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.client.FlagBindClient;
 import com.luoys.upgrade.flagweb.client.ReportClient;
-import com.luoys.upgrade.flagweb.util.Result;
 import com.luoys.upgrade.flagweb.vo.ReportVO;
 import com.luoys.upgrade.flagweb.vo.UserReportVO;
 import lombok.extern.slf4j.Slf4j;

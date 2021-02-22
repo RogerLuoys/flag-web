@@ -1,8 +1,7 @@
 package com.luoys.upgrade.flagweb.client;
 
-import com.luoys.upgrade.flagweb.util.Result;
+import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.vo.TaskDailyDetailVO;
-import com.luoys.upgrade.flagweb.vo.TaskDailyVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

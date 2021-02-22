@@ -1,12 +1,11 @@
 package com.luoys.upgrade.flagweb.web;
 
+import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.client.PointClient;
-import com.luoys.upgrade.flagweb.util.Result;
 import com.luoys.upgrade.flagweb.vo.PointLogVO;
 import com.luoys.upgrade.flagweb.vo.PointSummaryVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
