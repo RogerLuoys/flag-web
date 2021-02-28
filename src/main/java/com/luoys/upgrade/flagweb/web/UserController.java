@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/modifyUser", method = RequestMethod.PUT)
-    Result<Integer> modifyUser(@RequestBody UserInfoVO userInfoVO){
+    Result<Boolean> modifyUser(@RequestBody UserInfoVO userInfoVO){
         return userClient.modifyUser(userInfoVO);
     }
 

@@ -24,5 +24,5 @@ public interface UserClient {
     Result<Integer> register(@RequestBody UserInfoVO userInfoVO);
 
     @RequestMapping(value = "/user/modifyUser", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    Result<Integer> modifyUser(@RequestBody UserInfoVO userInfoVO);
+    Result<Boolean> modifyUser(@RequestBody UserInfoVO userInfoVO);
 }
