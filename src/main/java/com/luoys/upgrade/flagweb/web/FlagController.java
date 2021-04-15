@@ -1,11 +1,9 @@
 package com.luoys.upgrade.flagweb.web;
 
 import com.luoys.common.api.PageInfo;
-import com.luoys.common.api.PageListJO;
 import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.client.FlagBindClient;
 import com.luoys.upgrade.flagweb.client.FlagClient;
-import com.luoys.upgrade.flagweb.client.UserClient;
 import com.luoys.upgrade.flagweb.vo.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +20,6 @@ public class FlagController {
 
     @Autowired
     private FlagBindClient flagBindClient;
-
-    @Autowired
-    private UserClient userClient;
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public Result<String> hello() {

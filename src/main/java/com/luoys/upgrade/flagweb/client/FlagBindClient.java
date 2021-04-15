@@ -1,7 +1,6 @@
 package com.luoys.upgrade.flagweb.client;
 
 import com.luoys.common.api.PageInfo;
-import com.luoys.common.api.PageListJO;
 import com.luoys.common.api.Result;
 import com.luoys.upgrade.flagweb.vo.*;
 import org.springframework.cloud.openfeign.FeignClient;
